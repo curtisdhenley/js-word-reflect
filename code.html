@@ -79,25 +79,44 @@
             <div class="col-12 col-lg-8">
                 <pre class="line-numbers">
                     <code class="language-js">
-                        function displayMsg() {
-                            let msg = document.getElementById('message').value;
+                        // entry point AKA Controller
+                        function getValues() {
+                            let userString = document.getElementById('userString').value;
                             
-                            Swal.fire(
-                                {
-                                    backdrop: false,
-                                    title: 'Word Reflect',
-                                    text: msg
-                                }
-                            );
+                            let reversedString = reverseAString(userString);
+                            
+                            displayString(reversedString);
+                        }
+
+                        // logic function
+                        // reverse a string
+                        function reverseAString(userString) {
+                            let reversedString = ''
+                            
+                            for (let i = (userString.length - 1); i >= 0; i--) {
+                                reversedString += userString[i];
+                            }
+                            
+                            return reversedString;
+                        }
+
+                        // view function
+                        function displayString(reversedString) {
+                            document.getElementById('results').innerHTML = reversedString;
+                            document.getElementById('alert').classList.remove('invisible')
                         }
                     </code>
                 </pre>
             </div>
             <!-- code description -->
             <div class="col-12 col-lg-4">
-                <p>The code is structured in one function</p>
-                <h5><code>displayMsg()</code></h5>
-                <p>This function displays the message in a Sweet Alert</p>
+                <p>The code is structured in three functions</p>
+                <h5><code>getValues()</code></h5>
+                <p>This function grabs the string input by the user.</p>
+                <h5><code>reverseAString(userString)</code></h5>
+                <p>This function will iterate through each item in the string reading back to front, and store each letter in a new, reversed array.</p>
+                <h5><code>displayString(reversedString)</code></h5>
+                <p>This function displays the reversed string in an alert box.</p>
             </div>
         </div>
     </main>
