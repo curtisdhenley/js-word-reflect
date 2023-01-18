@@ -10,11 +10,13 @@ function getValues() {
 // logic function
 // reverse a string
 function reverseAString(userString) {
+    let reversedString = ''
 
+for (let i = (userString.length - 1); i >= 0; i--) {
+    reversedString += userString[i];
+}
 
-
-
-    return // some string
+    return reversedString;
 }
 
 // view function
